@@ -6,7 +6,8 @@ iptables -A INPUT -i lo -j ACCEPT iptables -A OUTPUT -o lo -j ACCEPT
 ### Estabeleça a política DROP (restritiva) para as chains INPUT e FORWARD da tabela filter.
 iptables -P INPUT DROP iptables -P FORWARD DROP
 ### Possibilite que usuários da rede interna possam acessar o serviço WWW, tanto na porta (TCP) 80 como na 443. Não esqueça de realizar NAT já que os usuários internos não possuem um endereço IP válido.
-iptables -A FORWARD -i eth0 -o eth2 -p tcp --dport 80 -j ACCEPT iptables -A FORWARD -i eth0 -o eth2 -p tcp --dport 443 -j ACCEPT 
+iptables -A FORWARD -i eth0 -o eth2 -p tcp --dport 80 -j ACCEPT 
+iptables -A FORWARD -i eth0 -o eth2 -p tcp --dport 443 -j ACCEPT 
 iptables -t nat -A POSTROUTING -o eth2 -s 10.1.1.0/24 -j MASQUERADE
 ### Faça LOG e bloqueie o acesso a qualquer site que contenha a palavra “games”.
 iptables -A FORWARD -m string --string "games" --algo bm --to 65535 -j LOG --log-prefix "Blocked Games: " 
