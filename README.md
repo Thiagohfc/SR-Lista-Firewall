@@ -10,7 +10,10 @@ iptables -A OUTPUT -o lo -j ACCEPT
 ```
 ### Estabeleça a política DROP (restritiva) para as chains INPUT e FORWARD da tabela filter.
 ```shell
-iptables -P INPUT DROP iptables -P FORWARD DROP
+iptables -P INPUT DROP
+```
+```shell
+iptables -P FORWARD DROP
 ```
 ### Possibilite que usuários da rede interna possam acessar o serviço WWW, tanto na porta (TCP) 80 como na 443. Não esqueça de realizar NAT já que os usuários internos não possuem um endereço IP válido.
 ```shell
