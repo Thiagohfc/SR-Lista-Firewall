@@ -24,10 +24,10 @@ iptables -t nat -A POSTROUTING -o eth2 -s 10.1.1.0/24 -j MASQUERADE
 ```
 ### Faça LOG e bloqueie o acesso a qualquer site que contenha a palavra “games”.
 ```shell
-iptables -A FORWARD -m string --string "games" --algo bm --to 65535 -j LOG --log-prefix "Jogos bloqueados: "
+iptables -A FORWARD -m string --string "jogos" --algo bm --to 65535 -j LOG --log-prefix "Jogos bloqueados: "
 ```
 ```shell
-iptables -A FORWARD -m string --string "games" --algo bm --to 65535 -j DROP
+iptables -A FORWARD -m string --string "jogos" --algo bm --to 65535 -j DROP
 ```
 ### Bloqueie acesso para qualquer usuário ao site www.jogosonline.com.br, exceto para seu chefe, que possui o endereço IP 10.1.1.100.
 ```shell
