@@ -3,7 +3,10 @@
 ## Regras Firewall
 ### Libere qualquer tráfego para interface de loopback no firewall.
  ```shell
-iptables -A INPUT -i lo -j ACCEPT iptables -A OUTPUT -o lo -j ACCEPT
+iptables -A INPUT -i lo -j ACCEPT
+```
+```shell
+iptables -A OUTPUT -o lo -j ACCEPT
 ```
 ### Estabeleça a política DROP (restritiva) para as chains INPUT e FORWARD da tabela filter.
 ```shell
